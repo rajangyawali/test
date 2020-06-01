@@ -1,0 +1,1 @@
+web: gunicorn NepalTech.wsgi --log-file -

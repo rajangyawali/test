@@ -1,0 +1,30 @@
+{% extends "technology/news.html" %}
+{% load static %}
+
+{% block title %}
+    News Retrieval
+{% endblock %}
+
+{% block content %}
+
+    <div class="col-lg-9">
+        <div class="main_content">
+                <div class="post_item post_h_large">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="post_image"><img src="{{ news.image_url }}" alt="{{ news.title }}"></div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="post_content">
+                                All news have been retrieved !!
+                            </div>
+                        </div>
+                    </div>
+                </div>					
+        </div>
+    </div>
+
+{% endblock %}
+
+
+

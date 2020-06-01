@@ -1,0 +1,258 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+<!-- Home -->
+	<div class="container>
+		<div class="row">
+			<div class="col-md-12">
+				<div id="news-slider" class="owl-carousel">
+
+				{% for news in gadget_news %}
+
+					<div class="post-slide">
+						<div class="post-img">
+							<a href="{{ news.url }}" class="over-layer"><img src="{{ news.image_url }}" height="300" width="400"alt=" " onerror="this.onerror=null;this.src='{% static 'images/technology.jpg' %}';"></a>
+						</div>
+						<div class="post-content">
+							<span class="post-date">{{ news.author }} | {{ news.posted}}</span>
+							<h3 class="post-title"><a href="{{ news.url }}">{{ news.title }}</a></h3>
+							<p class="post-description">
+								{{ news.description|truncatechars:120 }}
+							</p>
+							<ul class="post-bar">
+								{% comment %} <li><a href="#"></a>,</li> {% endcomment %}
+							</ul>
+						</div>
+					</div>
+
+				{% endfor %}
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Content Container -->
+
+	<div class="container">
+		<br>
+		<!-- Featured Title -->
+		<div class="featured_title">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="section_title_container d-flex flex-row align-items-start justify-content-start">
+							<div>
+								<div class="section_title">Recent News</div>
+							</div>
+							<div class="section_bar"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+
+			 	<!-- Main Content -->
+
+				<div class="col-lg-9">
+					<div class="main_content">
+
+						{% for news in tech_news %}
+							<div class="post_item post_h_large">
+								<div class="row">
+									<div class="col-lg-5">
+										<div class="post_image"><img src="{{ news.image_url }}" alt="{{ news.title }}"></div>
+									</div>
+									<div class="col-lg-7">
+										<div class="post_content">
+											<div class="post_category cat_technology"><a href="">Technology News</a></div>
+											<div class="post_title"><a href="{{ news.url }}">{{news.title}}</a></div>
+											<div class="post_info d-flex flex-row align-items-center justify-content-start">
+												<div class="post_author d-flex flex-row align-items-center justify-content-start">
+													<div class="post_author_name"><a href="#">{{news.author}}</a></div>
+												</div>
+												<div class="post_date">{{news.posted}}</div>
+											</div>
+											<div class="post_text">
+												<p>{{news.description}}</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					
+						<!-- Load more button -->
+						<div class="load_more">
+							<div class="load_more_button"><a href="{% url 'technology:recentnews'%}">View More</a></div>
+						</div>
+
+						<!-- Telecom News -->
+
+						<div class="technology">
+							<div class="section_title_container d-flex flex-row align-items-start justify-content-start">
+								<div>
+									<div class="section_title">Telecom News</div>
+								</div>
+								<div class="section_bar"></div>
+							</div>
+							<div class="technology_content">
+
+							{% for news in telco_news %}
+
+								<!-- Post -->
+								<div class="post_item post_h_large">
+									<div class="row">
+										<div class="col-lg-5">
+											<div class="post_image"><img src="{{ news.image_url }}" alt="{{ news.title }}"></div>
+										</div>
+										<div class="col-lg-7">
+											<div class="post_content">
+												<div class="post_category cat_technology"><a href="">Telecom News</a></div>
+												<div class="post_title"><a href="{{ news.url }}">{{ news.title }}</a></div>
+												<div class="post_info d-flex flex-row align-items-center justify-content-start">
+													<div class="post_author d-flex flex-row align-items-center justify-content-start">
+														<div class="post_author_name"><a href="#">{{ news.author }}</a></div>
+													</div>
+													<div class="post_date">{{ news.posted }}</div>
+												</div>
+												<div class="post_text">
+													<p>{{ news.description }}</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							{% endfor %}
+
+								
+							</div>
+						</div>
+						<div>
+							<br><br>
+						</div>
+						<!-- Load more button -->
+						<div class="load_more">
+							<div class="load_more_button"><a href="{% url 'technology:telconews'%}">View More</a></div>
+						</div>
+
+						<!-- Gadget News -->
+
+						<div class="technology">
+							<div class="section_title_container d-flex flex-row align-items-start justify-content-start">
+								<div>
+									<div class="section_title">Gadget News</div>
+								</div>
+								<div class="section_bar"></div>
+							</div>
+							<div class="technology_content">
+
+							{% for news in gadget_news %}
+							
+								<!-- Post -->
+								<div class="post_item post_h_large">
+									<div class="row">
+										<div class="col-lg-5">
+											<div class="post_image"><img src="{{ news.image_url }}" alt="{{ news.title }}"></div>
+										</div>
+										<div class="col-lg-7">
+											<div class="post_content">
+												<div class="post_category cat_technology"><a href="">Gadgets News</a></div>
+												<div class="post_title"><a href="{{ new.url}}">{{ news.title }}</a></div>
+												<div class="post_info d-flex flex-row align-items-center justify-content-start">
+													<div class="post_author d-flex flex-row align-items-center justify-content-start">
+														<div class="post_author_name"><a href="#">{{ news.author }}</a></div>
+													</div>
+													<div class="post_date">{{ news.posted }}</div>
+												</div>
+												<div class="post_text">
+													<p>{{ news.description }}</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							{% endfor %}
+
+							</div>
+						</div>
+						<div>
+							<br><br>
+						</div>
+						<!-- Load more button -->
+						<div class="load_more">
+							<div class="load_more_button"><a href="{% url 'technology:gadgetnews'%}">View More</a></div>
+						</div>
+
+						<!-- Global News -->
+
+						<div class="technology">
+							<div class="section_title_container d-flex flex-row align-items-start justify-content-start">
+								<div>
+									<div class="section_title">From the World</div>
+								</div>
+								<div class="section_bar"></div>
+							</div>
+							<div class="technology_content">
+
+							{% for news in global_news %}
+							
+								<!-- Post -->
+								<div class="post_item post_h_large">
+									<div class="row">
+										<div class="col-lg-5">
+											<div class="post_image"><img src="{{ news.image_url }}" alt="{{ news.title }}"></div>
+										</div>
+										<div class="col-lg-7">
+											<div class="post_content">
+												<div class="post_category cat_technology"><a href="category.html">Global News</a></div>
+												<div class="post_title"><a href="{{ new.url}}">{{ news.title }}</a></div>
+												<div class="post_info d-flex flex-row align-items-center justify-content-start">
+													<div class="post_author d-flex flex-row align-items-center justify-content-start">
+														<div class="post_author_name"><a href="#">{{ news.author }}</a></div>
+													</div>
+													<div class="post_date">{{ news.posted }}</div>
+												</div>
+												<div class="post_text">
+													<p>{{ news.description }}</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							{% endfor %}
+
+							</div>
+						</div>
+						<div>
+							<br><br>
+						</div>
+						<!-- Load more button -->
+						<div class="load_more">
+							<div class="load_more_button"><a href="{% url 'technology:globalnews'%}">View More</a></div>
+						</div>
+
+					</div>
+				</div>
+
+				{% include 'technology/sidenews.html' %}
+
+
+			</div>
+		</div>
+	</div>
+	<div>
+		<br><br>
+	</div>
+
+{% endblock %}
+
+
+

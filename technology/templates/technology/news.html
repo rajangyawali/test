@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+<!-- Advertisement Content -->
+<div class="header_content_container">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="header_content d-flex flex-row align-items-center justfy-content-start">
+                    <div class="header_extra ml-auto d-flex flex-row align-items-center justify-content-start">
+                        <a href="#">
+                            <div class="background_image" style="background-image:url({% static 'images/extra.jpg' %})"></div>
+                            <div class="header_extra_content">
+                                <div class="header_extra_title">save 50%</div>
+                                <div class="header_extra_subtitle">Buy now in stores</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="header_extra mr-auto d-flex flex-row align-items-center justify-content-start">
+                        <a href="#">
+                            <div class="background_image" style="background-image:url({% static 'images/extra.jpg' %})"></div>
+                            <div class="header_extra_content">
+                                <div class="header_extra_title">save 50%</div>
+                                <div class="header_extra_subtitle">Buy now in stores</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Content Container -->
+
+	<div class="container">
+		<br><br>
+		<!-- Featured Title -->
+		<div class="featured_title">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="section_title_container d-flex flex-row align-items-start justify-content-start">
+							<div>
+								<div class="section_title">{% block title %} {% endblock %}</div>
+							</div>
+							<div class="section_bar"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+
+			 	<!-- Main Content -->
+
+                 {% block content %}
+
+
+
+                 {% endblock %}
+
+				
+
+				<!-- Sidebar -->
+
+				{% include 'technology/sidenews.html' %}
+
+			</div>
+		</div>
+	</div>
+	<div>
+	</div>
+
+{% endblock %}
+
+
+

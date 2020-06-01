@@ -1,0 +1,77 @@
+{% extends "technology/news.html" %}
+{% load static %}
+
+{% block title %}
+    Nepal Telecommunications Authority (NTA) News
+{% endblock %}
+
+{% block content %}
+
+    <div class="col-lg-9">
+        <div class="main_content">
+
+            {% for news in news_list %}
+                <div class="post_item post_h_large">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="post_image"><img src="{{ news.image_url }}" alt="{{ news.title }}"></div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="post_content">
+                                <div class="post_category cat_technology"><a href="">NTA</a></div>
+                                <div class="post_title"><a href="{{ news.url }}">{{news.title}}</a></div>
+                                <div class="post_info d-flex flex-row align-items-center justify-content-start">
+                                    <div class="post_author d-flex flex-row align-items-center justify-content-start">
+                                        <div class="post_author_name"><a href="#">{{news.author}}</a></div>
+                                    </div>
+                                    <div class="post_date">{{news.posted}}</div>
+                                </div>
+                                <div class="post_text">
+                                    <p>{{news.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        
+            {% if news_list.has_other_pages %}
+
+					<div class="container">
+                        <nav class="pagination-container">
+                            <div class="pagination">
+                                <ul class = "pagination pagination-sm">
+                                    {% if  news_list.has_previous %}
+                                        <li><a class="pagination-newer" href="?page={{ news_list.previous_page_number }}">PREV</a></li>
+                                    {% else %}
+                                        <li class="disabled"></li>
+                                    {% endif %}
+
+                                    {% for pages in page_range  %}
+                                        <span class="pagination-inner">
+                                            {% if news_list.number == pages %}
+                                            <li><a class="pagination-active" href="#">{{pages}}</a></li>																
+                                            {% else %}
+                                                <li><a href="?page={{pages}}">{{pages}}</a></li>
+                                            {% endif %}
+                                        </span>							
+                                    {% endfor %}
+
+                                    {% if  news_list.has_next %}
+                                        <li><a class="pagination-older" href="?page={{ news_list.next_page_number }}">NEXT</a></li>
+                                    {% else %}
+                                        <li class="disabled"></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </nav>						
+					</div>
+
+			{% endif %}						
+        </div>
+    </div>
+
+{% endblock %}
+
+
+

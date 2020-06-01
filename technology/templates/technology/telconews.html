@@ -1,0 +1,86 @@
+{% extends "technology/news.html" %}
+{% load static %}
+
+{% block title %}
+    Telecom News
+{% endblock %}
+
+{% block content %}
+
+    <div class="col-lg-9">
+        <div class="main_content">
+        {% for news in telco_news %}
+            <div class="post_item post_h_large">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="post_image"><img src="{{ news.0.image_url }}" alt="{{ news.0.title }}"></div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="post_content">
+                                    <div class="post_category cat_technology"><a href="">Telco News</a></div>
+                                    <div class="post_title"><a href="{{ news.0.url }}">{{news.0.title}}</a></div>
+                                    <div class="post_info d-flex flex-row align-items-center justify-content-start">
+                                        <div class="post_author d-flex flex-row align-items-center justify-content-start">
+                                            <div class="post_author_name"><a href="#">{{news.0.author}}</a></div>
+                                        </div>
+                                        <div class="post_date">{{news.0.posted}}</div>
+                                    </div>
+                                    <div class="post_text">
+                                        <p>{{news.0.description}}</p>
+                                    </div>
+                                </div>
+                                {% if news.1 %}
+                                    <div style = "color: #624693; padding : 10px 0px 10px 0px;">Related News</div>
+                                    <div><a href="{{ news.1.url }}">{{news.1.title}}</a></div>
+                                {% endif %}
+
+                                {% if news.2 %}
+                                    <div><a href="{{ news.2.url }}">{{news.2.title}}</a></div>
+                                {% endif %}
+
+                                {% if news.3 %}
+                                    <div><a href="{{ news.3.url }}">{{news.3.title}}</a></div>
+                                {% endif %}    
+                            </div>                          
+                        </div>
+                    </div>      
+         {% endfor %}
+         {% if telco_news.has_other_pages %}
+
+					<div class="container">
+                        <nav class="pagination-container">
+                            <div class="pagination">
+                                <ul class = "pagination pagination-sm">
+                                    {% if  telco_news.has_previous %}
+                                        <li><a class="pagination-newer" href="?page={{ telco_news.previous_page_number }}">PREV</a></li>
+                                    {% else %}
+                                        <li class="disabled"></li>
+                                    {% endif %}
+
+                                    {% for pages in page_range  %}
+                                        <span class="pagination-inner">
+                                            {% if telco_news.number == pages %}
+                                            <li><a class="pagination-active" href="#">{{pages}}</a></li>																
+                                            {% else %}
+                                                <li><a href="?page={{pages}}">{{pages}}</a></li>
+                                            {% endif %}
+                                        </span>							
+                                    {% endfor %}
+
+                                    {% if  telco_news.has_next %}
+                                        <li><a class="pagination-older" href="?page={{ telco_news.next_page_number }}">NEXT</a></li>
+                                    {% else %}
+                                        <li class="disabled"></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </nav>						
+					</div>
+
+			{% endif %}			
+     </div>
+</div>
+{% endblock %}
+
+
+

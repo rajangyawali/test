@@ -1,0 +1,88 @@
+{% load static %}
+
+				<div class="col-lg-3">
+					<div class="sidebar">
+
+						<!-- Newsletter -->
+						<div class="sidebar_newsletter">
+							<div class="sidebar_title">Subscribe to our newsletter</div>
+							<form action="#" id="newsletter_form" class="newsletter_form">
+								<input type="email" class="newsletter_input" placeholder="Your e-mail here" required="required">
+								<button class="newsletter_button">subscribe</button>
+							</form>
+						</div>
+
+						<!-- Extra -->
+						<div class="sidebar_extra">
+							<a href="#">
+								<div class="sidebar_title">Advertisement</div>
+								<div class="sidebar_extra_container">
+									<div class="background_image" style="background-image:url({% static 'images/extra_1.jpg' %})"></div>
+									<div class="sidebar_extra_content">
+										<div class="sidebar_extra_title">30%</div>
+										<div class="sidebar_extra_title">off</div>
+										<div class="sidebar_extra_subtitle">Buy online now</div>
+									</div>
+								</div>
+							</a>
+						</div>
+
+
+						<!-- Most Viewed -->
+
+						<div class="most_viewed">
+							<div class="sidebar_title">Most Viewed</div>
+							<div class="most_viewed_items">
+
+								<!-- Most Viewed Item -->
+								<div class="most_viewed_item d-flex flex-row align-items-start justify-content-start">
+									<div><div class="most_viewed_num">01.</div></div>
+									<div class="most_viewed_content">
+										<div class="post_category_small cat_video"><a href="category.html">video</a></div>
+										<div class="most_viewed_title"><a href="single.html">New tech development</a></div>
+										<div class="most_viewed_date"><a href="#">March 12, 2018</a></div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<!-- Tags -->
+
+						<div class="tags">
+							<div class="sidebar_title">Tags</div>
+							<div class="tags_content d-flex flex-row align-items-start justify-content-start flex-wrap">
+								<div class="tag cat_technology" style="width:110px;"><a href="{% url 'technology:ntcnews' %}">NTC</a></div>								
+								<div class="tag cat_video" style="width:110px;"><a href="{% url 'technology:ltenews' %}">LTE</a></div>
+								<div class="tag cat_world" style="width:110px;"><a href="{% url 'technology:ncellnews' %}">Ncell</a></div>
+								<div class="tag cat_technology" style="width:110px;"><a href="{% url 'technology:smartcellnews' %}">SmartCell</a></div>
+								<div class="tag cat_video" style="width:110px;"><a href="{% url 'technology:ntanews' %}">NTA</a></div>
+								<div class="tag cat_world" style="width:110px;"><a href="{% url 'technology:fivegnews' %}">5G</a></div>
+								<div class="tag cat_party"style="width:110px;"><a href="{% url 'technology:huaweinews' %}">Huawei</a></div>
+								<div class="tag cat_video"style="width:110px;"><a href="{% url 'technology:samsungnews' %}">Samsung</a></div>
+								<div class="tag cat_technology" style="width:110px;"><a href="{% url 'technology:xiaominews' %}">Xiaomi</a></div>
+								<div class="tag cat_party" style="width:110px;"><a href="{% url 'technology:opponews' %}">Oppo</a></div>
+								<div class="tag cat_world" style="width:110px;"><a href="{% url 'technology:vivonews' %}">Vivo</a></div>
+								<div class="tag cat_technology" style="width:110px;"><a href="{% url 'technology:applenews' %}">Apple</a></div>
+                                <div class="tag cat_party" style="width:110px;"><a href="{% url 'technology:laptopnews' %}">Laptops</a></div>
+								<div class="tag cat_world" style="width:110px;"><a href="{% url 'technology:globalnews' %}">Global</a></div>
+							</div>
+						</div>
+
+						<!-- Extra -->
+						<div class="sidebar_extra">
+							<a href="#">
+								<div class="sidebar_title">Advertisement</div>
+								<div class="sidebar_extra_container">
+									<div class="background_image" style="background-image:url({% static 'images/extra_2.jpg' %})"></div>
+									<div class="sidebar_extra_content">
+										<div class="sidebar_extra_title">30%</div>
+										<div class="sidebar_extra_title">off</div>
+										<div class="sidebar_extra_subtitle">Buy online now</div>
+									</div>
+								</div>
+							</a>
+						</div>
+
+					</div>
+				</div>
